@@ -1,8 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://apis.google.com/js/platform.js"></script>
+</head>
+<body>
 <?php
 require_once('EmbedYoutubeLiveStreaming.php');
 $channelId = "<%= @channel_id %>";
 $api_key = "<%= @api_key %>";
 $YouTubeLive = new EmbedYoutubeLiveStreaming($channelId,$api_key);
+<div class="g-ytsubscribe" data-channel="<%= @channel_id %>" data-layout="full" data-theme="dark" data-count="default"></div><br>
 if(!$YouTubeLive->isLive)
 {
 	echo "Op dit moment is er geen live evenement:<br><br>";
@@ -31,3 +38,5 @@ EOT;
 	echo $YouTubeLive->embedCode();
 }
 ?>
+</body>
+</html>
